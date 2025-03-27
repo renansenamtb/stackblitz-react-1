@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { auth } from './config/firebaseConfig.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import styles from './styles/vigia.module.css'
 
 export default function App() {
   const [email, setEmail] = useState('');

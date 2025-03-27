@@ -13,6 +13,4 @@ if (rootElement) {
       </BrowserRouter>
     </StrictMode>
   );
-} else {
-  console.error("Elemento root não encontrado.");
 }
