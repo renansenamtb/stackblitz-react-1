@@ -1,16 +1,32 @@
 import { useState } from 'react';
 import { auth } from './config/firebaseConfig.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import styles from './styles/vigia.module.css'; 
+import { useNavigate } from 'react-router-dom';
+import { SignJWT } from 'jose';
+import { Link } from 'react-router-dom';
 
 export default function App() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
+const navigate = useNavigate();
+
   const autenticarComFirebase = async (evento) => {
     evento.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, senha);
+      
+const secretKey = new TextEnconder().encode('MinhaChaveSecreta');
+
+const token = await new SignJWT({ user: 'admin'})
+.setProtectedHeader({ alg: 'HS256'})
+.setIssuedAt()
+.setExpirationTime('1h')
+.sign(secretKey);
+
+localStorage.setItem('token', token);
+navigate('/')
+
       alert('Logado com sucesso!');
     } catch (error) {
       alert('Erro no processo!');
@@ -18,12 +34,12 @@ export default function App() {
   };
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
+    <div>
+      <main>
         <img
           src="https://upload.wikimedia.org/wikipedia/en/e/ea/Mike_Ehrmantraut_BCS_S3.png" 
           alt="idoso do breaking bad"
-          className={styles.imagem}
+          
         />
         <form onSubmit={autenticarComFirebase}>
           <label htmlFor="email">E-mail:</label>
@@ -44,6 +60,9 @@ export default function App() {
           />
           <button type="submit">Entrar</button>
         </form>
+        <Link to="/Registrar">
+        <p>fala dai chefe</p>
+        </Link>
       </main>
     </div>
   );
