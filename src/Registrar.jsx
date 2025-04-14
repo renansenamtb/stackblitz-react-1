@@ -22,12 +22,6 @@ export default function Registrar() {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <div className={styles.imageSection}>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/en/e/ea/Mike_Ehrmantraut_BCS_S3.png"
-            alt="idoso do breaking bad"
-          />
-        </div>
         <div className={styles.formSection}>
           <h2>Registrar</h2>
           <form onSubmit={handleRegister}>
