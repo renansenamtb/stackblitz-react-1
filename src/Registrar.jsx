@@ -1,6 +1,8 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { auth } from './config/firebaseConfig'; // 👈 IMPORTANTE
+
 
 export default function Registrar(){
     const [email, setEmail] = useState('');

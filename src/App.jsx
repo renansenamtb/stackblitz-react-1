@@ -16,7 +16,7 @@ const navigate = useNavigate();
     try {
       await signInWithEmailAndPassword(auth, email, senha);
       
-const secretKey = new TextEnconder().encode('MinhaChaveSecreta');
+const secretKey = new TextEncoder().encode('MinhaChaveSecreta');
 
 const token = await new SignJWT({ user: 'admin'})
 .setProtectedHeader({ alg: 'HS256'})

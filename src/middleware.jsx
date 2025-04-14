@@ -7,7 +7,7 @@ const AuthMiddleware = () => {
   useEffect(() => {
     const verifyToken = async () => {
       const token = localStorage.getItem('token');
-      const secretKey = new TextEncoder().encode('minhaChaveSecreta');
+      const secretKey = new TextEncoder().encode('MinhaChaveSecreta');
       const isAuthenticated = await jwtVerify(token, secretKey);
       if (isAuthenticated) {
         setIsAuthenticated(true);
