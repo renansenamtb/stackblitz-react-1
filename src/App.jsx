@@ -55,7 +55,7 @@ export default function App() {
             <button type="submit">Entrar</button>
           </form>
           <div className={styles.link}>
-            <Link to="/registrar">Ainda não tem conta? Registre-se</Link>
+            <Link to="/registrar">Registrar</Link>
           </div>
         </div>
       </div>

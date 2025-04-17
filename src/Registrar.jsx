@@ -44,7 +44,7 @@ export default function Registrar() {
             <button type="submit">Registrar</button>
           </form>
           <div className={styles.link}>
-            <Link to="/login">Já tem conta? Faça login</Link>
+            <Link to="/login">Faça login</Link>
           </div>
         </div>
       </div>
